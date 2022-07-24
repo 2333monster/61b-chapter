@@ -1,4 +1,7 @@
 # 默认忽略的文件
 /shelf/
 /workspace.xml
+<<<<<<< HEAD
 out
+=======
+>>>>>>> dfa86697cf93221a16e838ab0fd3702532aea37d
