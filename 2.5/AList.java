@@ -1,35 +1,49 @@
 /** Array based list.
- * @john tito
+ * @johntito
  */
 
-public class AList {
-    int[] items;
+public class AList<T> {
+    T[] items;
     int size;
 
     /** creates an empty list.*/
     public AList(){
-        items = new int[100];
+        items = (T[]) new Object[100];
         size = 0;
     }
 
-    /** Insert X into the back of the list. */
-    public void addLast(int x){
-        if(size == items.length){
-            int[] a = new int[size + 1];
+
+    /** Resize the capacity of the list. */
+    private void resize(int capacity){
+            T[] a = (T[]) new Object[capacity];
             System.arraycopy(items,0,a,0,size);
             items = a;
+    }
+
+    /** Insert X into the back of the list. */
+    public void addLast(T x){
+        if(size == items.length){
+            resize(size*2);
+        }
+        items[size] = x;
+        size += 1;
+    }
+
+    public void insertLast(T x){
+        if(size == items.length){
+            resize(size*2);
         }
         items[size] = x;
         size += 1;
     }
 
     /** returns the item from the back of the list. */
-    public int getLast(){
+    public T getLast(){
         return items[size-1];
     }
 
     /** gets the ith item in the list. */
-    public int get(int i){
+    public T get(int i){
         return items[i-1];
     }
 
@@ -40,8 +54,8 @@ public class AList {
 
     /** deletes item from back of the list
      * and return the item. */
-    public int removeLast(){
-        int returnItem = getLast();
+    public T removeLast(){
+        T returnItem = getLast();
         size -= 1;
         return returnItem;
     }
