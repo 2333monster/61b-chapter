@@ -31,6 +31,7 @@ public class SLList<Blorp> implements List61B<Blorp>{
     }
 
 
+    @Override
     public void insert(Blorp item, int position){
         Node p = sentinel;
         while(position > 1 && p.next != null){
@@ -42,17 +43,20 @@ public class SLList<Blorp> implements List61B<Blorp>{
     }
 
     /** Adds an item to the front of the sllist*/
+    @Override
     public void addFirst(Blorp x){
         sentinel.next = new Node(x,sentinel.next);
         size += 1;
     }
 
     /** Retrieves the front item from the list. */
+    @Override
     public Blorp getFirst() {
         return sentinel.next.item;
     }
 
     /** Adds an iterm to the last of the list*/
+    @Override
     public void addLast(Blorp x){
         Node p = sentinel;
         size += 1;
@@ -69,6 +73,7 @@ public class SLList<Blorp> implements List61B<Blorp>{
     }
 
     /** Retrieves the last of the list*/
+    @Override
     public Blorp getLast(){
         Node p = sentinel;
 
@@ -99,6 +104,8 @@ public class SLList<Blorp> implements List61B<Blorp>{
     //  }
     // }
 
+
+    @Override
     public Blorp get(int i){
         return get(i, sentinel.next);
     }
@@ -110,6 +117,7 @@ public class SLList<Blorp> implements List61B<Blorp>{
         return get(i-1,p.next);
     }
 
+    @Override
     public Blorp removeLast(){
         Node back = getLastNode();
         if(back == sentinel){
@@ -125,10 +133,14 @@ public class SLList<Blorp> implements List61B<Blorp>{
         return back.item;
     }
 
+
+    @Override
     public int size(){
         return size;
     }
 
+
+    @Override
     public void print() {
         System.out.println("THIS IS THE OVERRIDDEN VERSION.");
         Node p = sentinel.next;

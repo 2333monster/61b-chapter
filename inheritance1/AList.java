@@ -12,12 +12,12 @@ public class AList<T> implements List61B<T> {
         size = 0;
     }
 
-
+    @Override
     public void insert(T x, int position){
-        T[] newItems = (T[]) new Object[item.length + 1];
+        T[] newItems = (T[]) new Object[items.length + 1];
 
         System.arraycopy(items,0,newItems,0,position);
-        new[position] = x;
+        newItems[position] = x;
 
         System.arraycopy(items,position,newItems,position+1,items.length-position);
         items = newItems;
@@ -31,10 +31,13 @@ public class AList<T> implements List61B<T> {
             items = a;
     }
 
-    public void addFirst(Item x) {
+    @Override
+    public void addFirst(T x) {
         insert(x, 0);
     }
 
+
+    @Override
     /** Insert X into the back of the list. */
     public void addLast(T x){
         if(size == items.length){
@@ -44,27 +47,35 @@ public class AList<T> implements List61B<T> {
         size += 1;
     }
 
-    public Item getFirst() {
+
+    @Override
+    public T getFirst() {
         return get(0);
     }
 
+
+
     /** returns the item from the back of the list. */
+    @Override
     public T getLast(){
         return items[size-1];
     }
 
     /** gets the ith item in the list. */
+    @Override
     public T get(int i){
         return items[i];
     }
 
     /** returns the number of item in the list. */
+    @Override
     public int size(){
         return size;
     }
 
     /** deletes item from back of the list
      * and return the item. */
+    @Override
     public T removeLast(){
         T returnItem = getLast();
         items[size - 1] = null;
