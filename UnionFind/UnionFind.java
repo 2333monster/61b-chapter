@@ -1,11 +1,13 @@
 public class UnionFind {
 
-    public int[] id = new int[100];
-    public int[] sz = new int[100];
+    public int[] id;
+    public int[] sz;
 
     /* Creates a UnionFind data structure holding n vertices. Initially, all
        vertices are in disjoint sets. */
     public UnionFind(int n) {
+        id = new int[n];
+        sz = new int[n];
         for(int i = 0; i < n; i++){
             id[i] = i;
             sz[i] = 1;
@@ -35,10 +37,7 @@ public class UnionFind {
 
     /* Returns true if nodes v1 and v2 are connected. */
     public boolean connected(int v1, int v2) {
-        if(find(v1) == find(v2)){
-            return true;
-        }
-        return false;
+        return find(v1) == find(v2);
     }
 
     /* Connects two elements v1 and v2 together. v1 and v2 can be any valid
