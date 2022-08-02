@@ -53,7 +53,7 @@ public class UnionFind {
         int set2 = find(v2);
         // Task 2: compare the size of the two sets and union
         // Task 3: prepare for the next union
-        if(sz[set1] > sz[set2]){
+        if(sizeOf(v1) > sizeOf(v2)){
             id[id[set2]] = set1;
             sz[set1] += sz[set2];
             sz[set2]  = 1;
